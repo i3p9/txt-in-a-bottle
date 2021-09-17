@@ -49,7 +49,7 @@ def render_txt(txt_id):
 
     return render_template("showtxt.html", txt=txt["data"])
 
-@app.route("/raw/<string:txt_id>/")
+@app.route("/<string:txt_id>/raw/")
 def render_txt_raw(txt_id):
     try:
         txt = client.query(
