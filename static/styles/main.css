@@ -47,6 +47,12 @@ nav a{
     color: #FEE715;
 }
 
+.nav-title {
+    background-color: #FEE715;
+    color: #101820;
+    font-weight: 400;
+}
+
 .form-group{
     color: #FEE715;
 }
