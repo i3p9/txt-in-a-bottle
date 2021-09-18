@@ -22,20 +22,18 @@
         <p class="nav-title">txt in a bottle</p>
         </nav>
         <nav>
-        <a href="https://github.com/i3p9/txt-in-a-bottle">source code</a>
+        <a href="https://github.com/i3p9/txt-in-a-bottle" class="hover-underline-animation">source code</a>
         </nav>
     </div>
     <div class="container">
         <p>very lightweight and fast txt/code sharing website made using python.</p>
         <form>
             <div class="form-group">
-                <h4>your txt</h4>
-                <textarea class="form-control" rows="15" readonly>{{ "\n" + txt.txt_data }}
-                </textarea>
+                <h4>your txt</h4><a href="{{ txt.raw_id }}"><button type="button" class="custom-button">RAWW</button></a>
+                <textarea class="form-control" rows="15" readonly>{{ "\n" + txt.txt_data }}</textarea>
             </div>
             <div class="form-group text-center">
-                <a href="{{ url_for('index') }}"><button type="button" class="custom-button">Create Another
-                        Paste</button></a>
+                <a href="{{ url_for('index') }}"><button type="button" class="custom-button">create a new txt</button></a>
             </div>
         </form>
         </div>
