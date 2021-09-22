@@ -13,6 +13,7 @@
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
         crossorigin="anonymous"></script>
         <link rel="stylesheet" href="/static/styles/main.css">
+        <script src="/static/scripts/script.js"></script>
 
 </head>
 
@@ -29,11 +30,14 @@
         <p>very lightweight and fast txt/code sharing website made using python.</p>
         <form>
             <div class="form-group">
-                <h4>your txt</h4><a href="{{ txt.raw_id }}"><button type="button" class="custom-button">RAWW</button></a>
+                <h4>your txt</h4>
+                <span><button type="button" class="custom-button-no-bottom" onclick="toClipboard()">copy link to clipboard</button></span>
+                <span><button type="button" class="custom-button-no-bottom" onclick="openInNewTab()">view raw</button></span>
                 <textarea class="form-control" rows="15" readonly>{{ "\n" + txt.txt_data }}</textarea>
             </div>
             <div class="form-group text-center">
                 <a href="{{ url_for('index') }}"><button type="button" class="custom-button">create a new txt</button></a>
+                <textarea class="invisible" id="shareLink">{{ url_for(request.endpoint, **request.view_args) }}</textarea>
             </div>
         </form>
         </div>

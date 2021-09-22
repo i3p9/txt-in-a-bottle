@@ -87,6 +87,22 @@ nav a{
     /* margin: 4px 4px; */
 }
 
+.custom-button-no-bottom {
+    background-color: #151D25;
+    color: #FEE715;
+    border: 1px solid #FEE715;
+    font-family: 'Jetbrains Mono', monospace;
+    font-weight: 100;
+    text-align: justify;
+    text-decoration: none;
+    display: inline-block;
+    font-size: .9rem;
+    cursor: pointer;
+    border-radius: 2px;
+    padding: 5px 5px;
+    margin-bottom: 10px;
+}
+
 
 .hover-underline-animation {
     display: inline-block;
@@ -113,4 +129,10 @@ nav a{
 
 a:hover {
     color: #FEE715;
+}
+
+.invisible {
+    visibility: hidden;
+    position: absolute;
+    top: -9999px;
 }
