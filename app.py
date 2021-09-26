@@ -9,18 +9,9 @@ from faunadb.objects import Ref
 from faunadb.client import FaunaClient
 from dotenv import load_dotenv
 from flaskext.markdown import Markdown
-from flask_wtf import FlaskForm
-from wtforms import StringField
-from wtforms.validators import DataRequired
-
 
 app = Flask(__name__)
-Markdown(app)
-#Bootstrap(app)
 load_dotenv()
-
-SECRET_KEY = os.urandom(32)
-app.config['SECRET_KEY'] = SECRET_KEY
 
 
 client = FaunaClient(
@@ -29,10 +20,6 @@ client = FaunaClient(
     port=443,
     scheme="https",
 )
-
-class TxtForm(FlaskForm):
-    data = StringField('data', validators=[DataRequired()])
-
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -52,12 +39,6 @@ def index():
 
         return redirect(request.host_url + identifier)
     return render_template("index.html")
-
-# @app.route("/page/", methods=["GET", "POST"])
-# def new_form():
-#     form = TxtForm()
-
-#     return render_template("page.html", form=form)
 
 @app.route("/<string:txt_id>/")
 def render_txt(txt_id):
