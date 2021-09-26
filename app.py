@@ -8,10 +8,11 @@ from faunadb import query as q
 from faunadb.objects import Ref
 from faunadb.client import FaunaClient
 from dotenv import load_dotenv
+from flaskext.markdown import Markdown
 
 app = Flask(__name__)
-#Bootstrap(app)
 load_dotenv()
+
 
 client = FaunaClient(
     secret=os.environ.get("FAUNA_SECRET"),
@@ -23,7 +24,7 @@ client = FaunaClient(
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
-        txt_title = request.form.get("txt-title").strip()
+        #txt_title = request.form.get("txt-title").strip()
         txt_data = request.form.get("txt-data").strip()
 
         identifier = token_urlsafe(5)
@@ -31,7 +32,7 @@ def index():
             "data": {
                 "identifier": identifier,
                 "txt_data": txt_data,
-                "txt_title": txt_title,
+                # "txt_title": txt_title,
                 "date": datetime.now(pytz.UTC)
             }
         }))
@@ -42,8 +43,7 @@ def index():
 @app.route("/<string:txt_id>/")
 def render_txt(txt_id):
     try:
-        txt = client.query(
-            q.get(q.match(q.index("get_txt"), txt_id)))
+        txt = client.query(q.get(q.match(q.index("get_txt"), txt_id)))
     except:
         abort(404)
 
@@ -52,13 +52,21 @@ def render_txt(txt_id):
 @app.route("/<string:txt_id>/raw/")
 def render_txt_raw(txt_id):
     try:
-        txt = client.query(
-            q.get(q.match(q.index("get_txt"), txt_id)))
+        txt = client.query(q.get(q.match(q.index("get_txt"), txt_id)))
     except:
         abort(404)
 
     return render_template("raw.html", txt=txt["data"])
 
+@app.route("/<string:txt_id>/page/")
+def render_markdown(txt_id):
+    try:
+        txt = client.query(q.get(q.match(q.index("get_txt"), txt_id)))
+    except:
+        abort(404)
+
+    return render_template("page.html", txt=txt["data"])
+
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run(debug=True)

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{{ txt.txt_title }}</title>
+    <title>txt-in-a-bottle</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -32,6 +32,7 @@
             <div class="form-group">
                 <h4>your txt</h4>
                 <span><button type="button" class="custom-button-no-bottom" onclick="toClipboard()">copy link to clipboard</button></span>
+                <span><button type="button" class="custom-button-no-bottom" onclick="createWebpage()">create webpage</button></span>
                 <span><button type="button" class="custom-button-no-bottom" onclick="openInNewTab()">view raw</button></span>
                 <textarea class="form-control" rows="15" readonly>{{ "\n" + txt.txt_data }}</textarea>
             </div>
