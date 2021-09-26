@@ -1,6 +1,8 @@
 # Text in a bottle
 
-text-in-a-bottle is a fast webapp made in Python to create and share text or code snippets. For now it supports basic text creation and sharing.
+text-in-a-bottle is a fast webapp made in Python to create and share text or code snippets.
+
+It also has a feature to create super fast web pages with Markdown Support. 
 
 
 ## TODO
