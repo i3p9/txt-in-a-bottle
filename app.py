@@ -25,7 +25,6 @@ client = FaunaClient(
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
-        #txt_title = request.form.get("txt-title").strip()
         txt_data = request.form.get("txt-data").strip()
 
         identifier = token_urlsafe(5)
