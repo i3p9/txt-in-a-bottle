@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>how to create web page</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/static/styles/page.css">
+    </head>
+    <body>
+{% filter markdown %}
+#How to create a webpage with markdown
+
+Creating a *super-fast* and formatted web page is very easy. You can just write regular markdown to create your page.
+
+## Markdown Basics
+This is some of the features that markdown has to properly format your web page.
+
+### Headings!
+Markdown has various levels of headings which you can write with
+
+* `# Heading`
+* `## Smaller Heading`
+* `### Smallest Heading`
+
+### Text Transformation
+You can make your text **bold** or *italic* or write `code like this` with ``code``
+
+---
+
+Add a horizontal rule like above using `---`. You can do a [link](https://www.youtube.com/watch?v=dQw4w9WgXcQ) just like this with `[linktext](https://google.com)`.
+You can also add images just like the one below with `![alt text](direct link to image)`
+
+![ron holding a cup](https://images.immediate.co.uk/production/volatile/sites/3/2016/08/115819.jpg)
+
+
+### Lists
+You can create ordered list with
+
+1. First Item
+2. Second Item
+3. Third Item
+
+Or a bulleted one with `*`
+
+* First Item
+* Second Item
+* Third Item
+
+---
+
+The things you can do to make your webpage look befautiful is endless. Well, not really, but markdown has support for a lot more things than the ones I explained here. [Click here to learn more](https://www.markdownguide.org/cheat-sheet/)
+{% endfilter %}
+    </body>
+</html>

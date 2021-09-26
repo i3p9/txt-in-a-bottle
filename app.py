@@ -11,6 +11,7 @@ from dotenv import load_dotenv
 from flaskext.markdown import Markdown
 
 app = Flask(__name__)
+Markdown(app)
 load_dotenv()
 
 
@@ -67,6 +68,10 @@ def render_markdown(txt_id):
 
     return render_template("page.html", txt=txt["data"])
 
+@app.route("/howto/", methods=['GET'])
+def render_howto():
+
+    return render_template("howto.html")
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
