@@ -3,7 +3,7 @@
 text-in-a-bottle is a fast webapp made in Python to create and share text or code snippets. For now it supports basic text creation and sharing.
 
 
-## Todo
+## TODO
 
 - Rate limiter
 - code fomatting (maybe??)

@@ -19,4 +19,14 @@ function openInNewTab() {
     newURL = "https://txtinabottle.herokuapp.com" + endPoint + "raw"
     console.log(newURL)
     window.open(newURL, '_blank').focus();
-   }
+}
+
+function createWebpage() {
+    var copyText = document.getElementById("shareLink");
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); /* For mobile devices */
+    var endPoint = copyText.value;
+    newURL = "https://txtinabottle.herokuapp.com" + endPoint + "page"
+    console.log(newURL)
+    window.open(newURL, '_blank').focus();
+}
