@@ -1,66 +1,108 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap');
 
+/* Variables */
+:root {
+    --bg-color: #101820;
+    --bg-color-light: #2e455c;
+    --theme-color: #FCF951FF;
+    --island-green: #2BAE66FF;
+    --theme-light: #FEE715;
+    --form-text: #DCE4EC;
+    --form-text-dark: #bdccdb;
+  }
+
 /* Global CSS */
 
 html {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: #101820;
-    color: #FEE715;
+    background-color: var(--bg-color);
+    color: var(--theme-color);
     font-family: 'Jetbrains Mono', monospace;
 }
 
 .container {
+    max-width: 600px;
+    margin: 0 auto;
     padding-top: 2rem;
-    background-color: #101820;
+    background-color: var(--bg-color);
+}
+
+::selection {
+    color: var(--form-text-dark);
+    background: var(--bg-color-light);
+    color: var(--bg-color);
+    background: var(--theme-color);
+}
+
+#homepageui {
+    background-color: var(--bg-color);
 }
 
 h4 {
     font-family: 'Jetbrains Mono', monospace;
-    color: #FEE715;
+    color: var(--theme-color);
 }
 p {
     font-family: 'Jetbrains Mono', monospace;
-    color: #FEE715;
+    color: var(--theme-color);
 }
 
 nav p {
     text-align: left;
     text-decoration: none;
-    color: #101820;
+    color: var(--bg-color);
     margin-right: 20px;
     padding: 5px;
     font-family: 'Jetbrains Mono', monospace;
     font-weight: 200;
-    color: #FEE715;
+    color: var(--theme-color);
 
 }
 
 a{
     text-align: right;
     text-decoration: none;
-    color: #101820;
+    color: var(--bg-color);
     /* margin-right: 20px; */
     /* padding: 5px; */
     font-family: 'Jetbrains Mono', monospace;
     font-weight: 200;
-    color: #FEE715;
+    color: var(--theme-color);
 }
 
 .nav-title {
-    background-color: #FEE715;
-    color: #101820;
+    background-color: var(--theme-color);
+    color: var(--bg-color);
     font-weight: 400;
 }
 
+.nav-title-showtxt {
+    background-color: var(--theme-color);
+    color: var(--bg-color);
+    font-weight: 400;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    box-sizing:content-box !important;
+}
+
+.nav-title-showtxt::after {
+    box-sizing:content-box !important;
+}
+
+.nav-title-showtxt::before {
+    box-sizing:content-box !important;
+}
+
+.nav-title-showtxt * {
+    box-sizing: content-box !important;
+}
 .form-group{
-    color: #FEE715;
+    color: var(--theme-color);
 }
 
 .form-control{
     background-color: #151D25 !important;
     color: #DCE4EC !important;
-    border: 1px solid #FEE715 !important;
+    border: 1px solid var(--theme-color) !important;
     font-size: 0.9rem;
     outline: 0 none;
 }
@@ -71,8 +113,8 @@ a{
 
 .custom-button {
     background-color: #151D25;
-    color: #FEE715;
-    border: 1px solid #FEE715;
+    color: var(--theme-color);
+    border: 1px solid var(--theme-color);
     font-family: 'Jetbrains Mono', monospace;
     font-weight: 100;
     text-align: justify;
@@ -89,8 +131,8 @@ a{
 
 .custom-button-no-bottom {
     background-color: #151D25;
-    color: #FEE715;
-    border: 1px solid #FEE715;
+    color: var(--theme-color);
+    border: 1px solid var(--theme-color);
     font-family: 'Jetbrains Mono', monospace;
     font-weight: 100;
     text-align: justify;
@@ -117,7 +159,7 @@ a{
     height: 1px;
     bottom: 0;
     left: 0;
-    background-color: #FEE715;
+    background-color: var(--theme-color);
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
 }
@@ -128,11 +170,129 @@ a{
 }
 
 a:hover {
-    color: #FEE715;
+    color: var(--theme-color);
 }
 
 .invisible {
     visibility: hidden;
     position: absolute;
     top: -9999px;
+}
+
+#createtxtbutton{
+    font-family: 'Jetbrains Mono', monospace;
+    font-size: 1.3rem;
+    background-color: var(--bg-color);
+    border: 3px solid var(--theme-color);
+    color: var(--theme-color);
+    width: 150px;
+    height: 150px;
+}
+#createtxtbutton:hover{
+    font-family: 'Jetbrains Mono', monospace;
+    font-size: 1.3rem;
+    background-color: var(--bg-color);
+    border: 3px solid var(--theme-light);
+    color: var(--theme-light);
+    width: 150px;
+    height: 150px;
+}
+
+/* CSS For New TXT Area */
+.topbar{
+    background-color: var(--bg-color);
+    display: flex;
+    height: 45px;
+    width: 100%;
+    padding: 5px;
+    justify-content: flex-end;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.topbar-showtxt{
+    background-color: var(--bg-color);
+    display: flex;
+    height: 45px;
+    width: 100%;
+    padding: 5px;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.bottombar{
+    background-color: var(--bg-color);
+    display: flex;
+    height: 45px;
+    width: 100%;
+    padding: 5px;
+    position: absolute;
+    bottom: 0;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.aha-button {
+    border: 2px solid var(--theme-color);
+    font-family: 'Jetbrains Mono', monospace !important;
+    font-size: 1.1rem;
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: var(--bg-color);
+    color:var(--theme-color);
+    border-radius: 2px;
+}
+.aha-button:hover {
+    border: 2px solid var(--theme-light);
+    /* border-bottom: 3px solid var(--theme-color) !important; */
+    font-family: 'Jetbrains Mono', monospace !important;
+    font-size: 1.1rem;
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: var(--bg-color);
+    color:var(--theme-light);
+    border-radius: 2px;
+}
+
+.txtarea {
+    font-family: 'Roboto Mono', monospace;
+    height: calc(100% - 110px);
+    overflow: auto;
+    position: absolute;
+    top: 55px;
+    width: 100%;
+}
+
+#txtarealeft{
+    display: block;
+    color: var(--theme-color);
+    float: left;
+    font-family: 'Jetbrains Mono', monospace !important;
+    left: 5px;
+    overflow: hidden;
+    position: absolute;
+    text-align: right;
+    top: 6.5px;
+    width: 30px;
+    z-index: -1;
+}
+
+
+.txtbox{
+    background: transparent none repeat scroll 0 0;
+    border: 0 none;
+    box-sizing: border-box;
+    color: #c5c8c6!important;
+    font-family: 'Jetbrains Mono', monospace !important;
+    font-size: 1.1rem;
+    height: calc(100% - 10px);
+    margin: 0;
+    margin-left: 5px;
+    outline: medium none;
+    padding: 6.5px 0 0 50px;
+    position: absolute;
+    resize: none;
+    width: 95%;
 }
