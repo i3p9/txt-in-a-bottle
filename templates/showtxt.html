@@ -18,7 +18,7 @@
 </head>
 
 <body>
-    <div class="container d-flex justify-content-between mt-1">
+    <!-- <div class="container d-flex justify-content-between mt-1">
         <nav>
         <p class="nav-title">txt in a bottle</p>
         </nav>
@@ -41,7 +41,26 @@
                 <textarea class="invisible" id="shareLink">{{ url_for(request.endpoint, **request.view_args) }}</textarea>
             </div>
         </form>
-        </div>
+        </div> -->
+        <div id="createui">
+            <form>
+            <div class="topbar-showtxt">
+                <p class="nav-title-showtxt">txt in a bottle</p>
+                <a href="{{ url_for('index') }} " target="_blank"><button class="aha-button">new txt</button></a>
+            </div>
+            <div class="txtarea">
+                <div id="txtarealeft" style="vertical-align: inherit;">></div>
+                <textarea class="txtbox" name="txt-data" readonly>{{ "\n" + txt.txt_data }}</textarea>
+                <textarea class="invisible" id="shareLink">{{ url_for(request.endpoint, **request.view_args) }}</textarea>
+            </div>
+            </form>
+            <div class="bottombar">
+                <button class="aha-button" onclick="toClipboard()">copy link</button>
+                <button class="aha-button" onclick="createWebpage()"">create webpage</button>
+                <button class="aha-button" onclick="openInNewTab()"">raw</button>
+            </div>
+            </div>
+
 </body>
 
 </html>
