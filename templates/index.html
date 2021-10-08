@@ -13,10 +13,12 @@
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
         crossorigin="anonymous"></script>
         <link rel="stylesheet" href="/static/styles/main.css">
+        <script src="/static/scripts/script.js"></script>
 
 </head>
 
 <body>
+    <div id="homepageui">
     <div class="container d-flex justify-content-between mt-1">
         <nav>
         <p class="nav-title">txt in a bottle</p>
@@ -28,12 +30,15 @@
     <div class="container">
         <p>very lightweight and fast txt/code sharing website made using python.</p>
         <p>It also supports creating very light web pages powered via Markdown. Write using markdown formatting and click on 'Create web page' after creating the txt. <a href="/howto" class="hover-underline-animation">Learn more.</a></p>
-        <form method="POST">
-            <!-- <div class="form-group">
+        <div style="text-align:center;">
+        <button id="createtxtbutton" onclick="showCreateUI()">create new txt</button>
+        </div>
+        <!-- <form method="POST">
+            <div class="form-group">
                 <h4>txt title</h4>
                 <input type="text" class="form-control form-control-lg" name="txt-title" required>
             </div>
-            <br> -->
+            <br>
             <h4>create a txt</h4>
             <div class="form-group">
                 <textarea class="form-control" name="txt-data" rows="15" required></textarea>
@@ -41,8 +46,22 @@
             <div class="form-group text-center">
                 <button type="submit" class="custom-button">create new txt</button>
             </div>
-        </form>
+        </form> -->
     </div>
+</div>
+
+<div id="createui" style="display: none;">
+<form method="POST">
+<div class="topbar">
+        <button type="submit" class="aha-button">create</button>
+        <button id="goback" class="aha-button" onclick="showHomeUI()">go back</button>
+</div>
+<div class="txtarea">
+    <div id="txtarealeft" style="vertical-align: inherit;">></div>
+    <textarea class="txtbox" name="txt-data" rows="15" required></textarea>
+</div>
+</form>
+</div>
 </body>
 
 </html>

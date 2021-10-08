@@ -30,3 +30,15 @@ function createWebpage() {
     console.log(newURL)
     window.open(newURL, '_blank').focus();
 }
+
+function showCreateUI(){
+    document.getElementById('homepageui').style.display="none";
+    document.getElementById('createui').style.display="block";
+
+}
+
+function showHomeUI(){
+    document.getElementById('homepageui').style.display="block";
+    document.getElementById('createui').style.display="none";
+
+}
