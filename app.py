@@ -18,9 +18,9 @@ from flask_pagedown import PageDown
 
 app = Flask(__name__)
 # app.config['SECRET_KEY'] = 'SJHDKJHSAKJNFSNB'
-# Markdown(app)
+Markdown(app)
 load_dotenv()
-pagedown = PageDown(app)
+#pagedown = PageDown(app)
 
 client = FaunaClient(
     secret=os.environ.get("FAUNA_SECRET"),
@@ -29,6 +29,7 @@ client = FaunaClient(
     scheme="https",
 )
 
+#TODO: Implement Live md editing
 # class PageDownFormExample(Form):
 #     pagedown = PageDownField('Enter your markdown')
 #     submit = SubmitField('Submit')
