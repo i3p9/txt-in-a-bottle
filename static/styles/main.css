@@ -84,17 +84,6 @@ a{
     box-sizing:content-box !important;
 }
 
-.nav-title-showtxt::after {
-    box-sizing:content-box !important;
-}
-
-.nav-title-showtxt::before {
-    box-sizing:content-box !important;
-}
-
-.nav-title-showtxt * {
-    box-sizing: content-box !important;
-}
 .form-group{
     color: var(--theme-color);
 }
@@ -258,11 +247,12 @@ a:hover {
 
 .txtarea {
     font-family: 'Roboto Mono', monospace;
-    height: calc(100% - 110px);
+    height: calc(100% - 100px);
     overflow: auto;
     position: absolute;
     top: 55px;
     width: 100%;
+    border: 1px dotted var(--theme-color)
 }
 
 #txtarealeft{
@@ -295,4 +285,10 @@ a:hover {
     position: absolute;
     resize: none;
     width: 95%;
+}
+
+input,
+textarea,
+[contenteditable] {
+    caret-color: var(--theme-color);
 }

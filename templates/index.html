@@ -9,9 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
-        crossorigin="anonymous"></script>
         <link rel="stylesheet" href="/static/styles/main.css">
         <script src="/static/scripts/script.js"></script>
 
@@ -29,7 +26,7 @@
     </div>
     <div class="container">
         <p>very lightweight and fast txt/code sharing website made using python.</p>
-        <p>It also supports creating very light web pages powered via Markdown. Write using markdown formatting and click on 'Create web page' after creating the txt. <a href="/howto" class="hover-underline-animation">Learn more.</a></p>
+        <p>It also supports creating very light web pages powered via Markdown. Write using markdown formatting and click on 'Create web page' after creating the txt. <span style="font-style: italic;"><a href="/howto" class="hover-underline-animation">Learn more.</a></span></p>
         <div style="text-align:center;">
         <button id="createtxtbutton" onclick="showCreateUI()">create new txt</button>
         </div>
@@ -58,7 +55,7 @@
 </div>
 <div class="txtarea">
     <div id="txtarealeft" style="vertical-align: inherit;">></div>
-    <textarea class="txtbox" name="txt-data" rows="15" required></textarea>
+    <textarea placeholder="start typing here or paste text..." id="txtareainput" class="txtbox" name="txt-data" rows="15" required></textarea>
 </div>
 </form>
 </div>

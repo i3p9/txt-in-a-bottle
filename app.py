@@ -10,10 +10,17 @@ from faunadb.client import FaunaClient
 from dotenv import load_dotenv
 from flaskext.markdown import Markdown
 
-app = Flask(__name__)
-Markdown(app)
-load_dotenv()
+from flask_wtf import Form
+from flask_pagedown.fields import PageDownField
+from wtforms.fields import SubmitField
+from flask_pagedown import PageDown
 
+
+app = Flask(__name__)
+# app.config['SECRET_KEY'] = 'SJHDKJHSAKJNFSNB'
+# Markdown(app)
+load_dotenv()
+pagedown = PageDown(app)
 
 client = FaunaClient(
     secret=os.environ.get("FAUNA_SECRET"),
@@ -21,6 +28,19 @@ client = FaunaClient(
     port=443,
     scheme="https",
 )
+
+# class PageDownFormExample(Form):
+#     pagedown = PageDownField('Enter your markdown')
+#     submit = SubmitField('Submit')
+
+# @app.route('/live', methods = ['GET', 'POST'])
+# def lmao():
+#     form = PageDownFormExample()
+#     if form.validate_on_submit():
+#         text = form.pagedown.data
+#         # do something interesting with the Markdown text
+#     return render_template('liveMD.html', form = form)
+
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -73,4 +93,4 @@ def render_howto():
     return render_template("howto.html")
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run(debug=True)
