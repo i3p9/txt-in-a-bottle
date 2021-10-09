@@ -34,6 +34,7 @@ function createWebpage() {
 function showCreateUI(){
     document.getElementById('homepageui').style.display="none";
     document.getElementById('createui').style.display="block";
+    document.getElementById('txtareainput').focus();
 
 }
 
