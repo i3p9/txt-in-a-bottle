@@ -9,7 +9,7 @@
     --theme-light: #FEE715;
     --form-text: #DCE4EC;
     --form-text-dark: #bdccdb;
-  }
+}
 
 /* Global CSS */
 
@@ -252,7 +252,13 @@ a:hover {
     position: absolute;
     top: 55px;
     width: 100%;
-    border: 1px dotted var(--theme-color)
+    border: 1px dotted var(--theme-color);
+    /* background: url(http://i.imgur.com/2cOaJ.png);
+    background-attachment: local;
+    background-repeat: no-repeat;
+    padding-left: 35px;
+    padding-top: 10px;
+    border-color: #ccc; */
 }
 
 #txtarealeft{

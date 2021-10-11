@@ -10,17 +10,17 @@ from faunadb.client import FaunaClient
 from dotenv import load_dotenv
 from flaskext.markdown import Markdown
 
-# from flask_wtf import Form
-# from flask_pagedown.fields import PageDownField
-# from wtforms.fields import SubmitField
-# from flask_pagedown import PageDown
+from flask_wtf import Form
+from flask_pagedown.fields import PageDownField
+from wtforms.fields import SubmitField
+from flask_pagedown import PageDown
 
 
 app = Flask(__name__)
-# app.config['SECRET_KEY'] = 'SJHDKJHSAKJNFSNB'
+app.config['SECRET_KEY'] = 'SJHDKJHSAKJNFSNB'
 Markdown(app)
 load_dotenv()
-#pagedown = PageDown(app)
+pagedown = PageDown(app)
 
 client = FaunaClient(
     secret=os.environ.get("FAUNA_SECRET"),
@@ -30,17 +30,29 @@ client = FaunaClient(
 )
 
 #TODO: Implement Live md editing
-# class PageDownFormExample(Form):
-#     pagedown = PageDownField('Enter your markdown')
-#     submit = SubmitField('Submit')
+class PageDownFormExample(Form):
+    pagedown = PageDownField('Enter your markdown')
+    submit = SubmitField('Submit')
 
-# @app.route('/live', methods = ['GET', 'POST'])
-# def lmao():
-#     form = PageDownFormExample()
-#     if form.validate_on_submit():
-#         text = form.pagedown.data
-#         # do something interesting with the Markdown text
-#     return render_template('liveMD.html', form = form)
+@app.route('/live/', methods = ["GET", "POST"])
+def lmao():
+    form = PageDownFormExample()
+    if request.method == "POST":
+        print("Post requested... peep")
+        if form.validate_on_submit():
+            print("form validated...poooop")
+            txt_data = form.pagedown.data
+            identifier = token_urlsafe(5)
+            txt = client.query(q.create(q.collection("txtbottle"), {
+                "data": {
+                    "identifier": identifier,
+                    "txt_data": txt_data,
+                    # "txt_title": txt_title,
+                    "date": datetime.now(pytz.UTC)
+                }
+            }))
+            return redirect(request.host_url + identifier + "/page/")
+    return render_template('live.html', form = form)
 
 
 @app.route("/", methods=["GET", "POST"])

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {{ pagedown.include_pagedown() }}
+    <link rel="stylesheet" href="/static/styles/live.css">
+</head>
+
+<body>
+    <script>
+        function goHome() {
+            window.open("/","_self")
+        }
+    </script>
+    <div class="topbar">
+        {{ form.submit(class="aha-button",form="liveForm") }}
+        <button id="goback" class="aha-button" onclick="goHome()">go back</button>
+    </div>
+    <div class="txtarealeft" style="vertical-align: inherit;">></div>
+    <form id="liveForm" method="POST">
+        {{ form.hidden_tag() }}
+        <div class="pointything">></div>
+        <div class="left">{{ form.pagedown(only_input=True) }}</div>
+        <div>{{ form.pagedown(only_preview=True) }}</div>
+</form>
+        <!-- <form method="POST">
+            {{ form.hidden_tag() }}
+        <div>{{ form.pagedown(only_input=True) }}</div>
+        <div>{{ form.pagedown(only_preview=True) }}</div>
+        </form> -->
+
+</body>
+
+</html>
