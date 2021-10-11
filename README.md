@@ -1,26 +1,27 @@
 # Text in a bottle
 
-text-in-a-bottle is a fast webapp made in Python to create and share text or code snippets.
+text-in-a-bottle is a fast webapp made in Python to create and share text or code snippets. Made using Flask, MongoDB.
 
 It also has a feature to create super fast web pages with Markdown Support. 
-
 
 ## TODO
 
 - Rate limiter
+- support for editing documents
 - code fomatting (maybe??)
 - curl support
+- live markdown editing (done)
 
 ## Development
 
-Clone the repo, install the `requirements.txt` via pip and run `app.py`. For database access, create a new collection named `txtbottle`
+Clone the repo, install the `requirements.txt` via pip and run `app.py`. For database, collection name is `txt`.  
 
 ### Env variable
 
-Create a file `.env` in your root project folder and only put the db secrect like so:
+Create a file `.env` in your root project folder and only put the db secrect like below:
 
 ```
-FAUNA_SECRET='YOURKEYHERE'
+MONGO_URI='MongoURIHERE'
 ```
 
-You also might need to change the db request domain in line #18 of `app.py` if you chose anything another than US as the db server.
+Uncomment the localhost connection section if you wish to test it in local mongodb server, which is preferred for development. I personally use Robo 3T to interface with mongodb servers (local/remote).
