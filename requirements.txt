@@ -7,3 +7,4 @@ Flask-Markdown==0.3
 Flask-WTF==0.15.1
 Flask-PageDown==0.4.0
 flask-mongoengine==1.0.0
+pymongo[srv]==3.12.0
