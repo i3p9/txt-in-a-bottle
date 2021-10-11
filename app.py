@@ -17,7 +17,7 @@ from flask_mongoengine import MongoEngine
 import uuid
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'SJHDKJHSAKJNFSNB'
+app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
 Markdown(app)
 load_dotenv()
 pagedown = PageDown(app)
@@ -48,13 +48,13 @@ class Txt(db.Document):
         }
 
 #TODO: Implement Live md editing
-class PageDownFormExample(Form):
+class LiveMDEditing(Form):
     pagedown = PageDownField('Enter your markdown')
     submit = SubmitField('Submit')
 
 @app.route('/live/', methods = ["GET", "POST"])
 def lmao():
-    form = PageDownFormExample()
+    form = LiveMDEditing()
     if request.method == "POST":
         print("Post requested... peep")
         if form.validate_on_submit():
