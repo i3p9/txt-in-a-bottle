@@ -13,6 +13,6 @@
         <link rel="stylesheet" href="/static/styles/page.css">
     </head>
     <body>
-        {% filter markdown %}{{ "\n" + txt.txt_data }} {% endfilter %}
+        {% filter markdown %}{{ "\n" + txt[0].txt_data }} {% endfilter %}
     </body>
 </html>

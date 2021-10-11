@@ -15,6 +15,10 @@
 </head>
 
 <body>
+    <script>
+        var dd = JSON.parse('{{ txt | tojson | safe }}');
+        console.log(dd.edit_key);
+    </script>
     <div id="createui">
         <form>
             <div class="topbar-showtxt">
@@ -24,7 +28,7 @@
             </div>
             <div class="txtarea">
                 <div id="txtarealeft" style="vertical-align: inherit;">></div>
-                <textarea class="txtbox" name="txt-data" readonly>{{ "\n" + txt.txt_data }}</textarea>
+                <textarea class="txtbox" name="txt-data" readonly>{{ txt[0].txt_data }}</textarea>
                 <textarea class="invisible"
                     id="shareLink">{{ url_for(request.endpoint, **request.view_args) }}</textarea>
             </div>
