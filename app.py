@@ -47,6 +47,18 @@ class Txt(db.Document):
             "edit_key": self.edit_key,
         }
 
+class Log(db.Document):
+    timestamp = db.StringField()
+    success = db.StringField()
+    failed = db.StringField()
+
+    def to_json(self):
+        return{
+            "timestamp": self.timestamp,
+            "success": self.success,
+            "failed": self.failed,
+        }
+
 #TODO: Implement Live md editing
 class LiveMDEditing(Form):
     pagedown = PageDownField('Enter your markdown')
@@ -117,6 +129,19 @@ def render_markdown(identifier):
 def render_howto():
 
     return render_template("howto.html")
+
+@app.route("/api/v1/logData")
+def render_api_log():
+    date=datetime.now(pytz.timezone('Asia/Dhaka'))
+    success = "10"
+    failed = "20"
+    log = Log(timestamp = date,
+    success=success,
+    failed=failed
+    )
+    log.save()
+
+
 
 if __name__ == "__main__":
     app.run(debug=False)
