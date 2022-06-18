@@ -1,3 +1,4 @@
+from crypt import methods
 from logging import debug
 import os
 import pytz
@@ -130,7 +131,7 @@ def render_howto():
 
     return render_template("howto.html")
 
-@app.route("/api/v1/logData")
+@app.route("/api/v1/logData", methods=["POST"])
 def render_api_log():
     date=datetime.now(pytz.timezone('Asia/Dhaka'))
     success = "10"
@@ -140,6 +141,7 @@ def render_api_log():
     failed=failed
     )
     log.save()
+    return log.to_json()
 
 
 
